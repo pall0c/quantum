@@ -4,15 +4,17 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-    const glossary = await getCollection('glossary');
-    return glossary.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { entry },
-    }));
+	const glossary = await getCollection('glossary');
+	return glossary.map((entry) => {
+		return {
+			params: { slug: entry.slug },
+			props: { entry },
+		};
+	});
 }
 
 interface Props {
-    entry: CollectionEntry<'glossary'>;
+	entry: CollectionEntry<'glossary'>;
 }
 
 const { entry } = Astro.props;
