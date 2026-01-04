@@ -27,7 +27,7 @@ const { Content } = await entry.render();
         {entry.data.description && (
             <p class="text-gray-400 text-md mb-2">{entry.data.description}</p>
         )}
-        <div class="text-gray-700 text-md">
+        <div class="text-gray-700 text-md max-w-[40ch] break-words">
             <Content />
         </div>
     </main>
