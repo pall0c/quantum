@@ -8,7 +8,16 @@ const glossary = defineCollection({
     }),
 });
 
+const resources = defineCollection({
+    type: 'content',
+    schema: z.object({
+        name: z.string(),
+        source: z.string(),
+    }),
+});
+
 export const collections = {
     glossary,
+    resources,
 };
 
