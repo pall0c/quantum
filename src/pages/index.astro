@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 const glossary = await getCollection('glossary');
 const resources = await getCollection('resources');
+const fermionsBosons = await getEntry('glossary', 'fermions-bosons');
+const { Content } = await fermionsBosons.render();
 ---
 
 <BaseLayout>

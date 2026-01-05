@@ -1,11 +1,13 @@
 theory-title,
-experiment-title {
+experiment-title,
+fermion-boson-title {
     display: inline;
     color: #6e66d4;
 }
 
 theory-title::after,
-experiment-title::after {
+experiment-title::after,
+fermion-boson-title::after {
     content: "\A";
     white-space: pre;
 }
@@ -13,7 +15,8 @@ experiment-title::after {
 theory-author,
 theory-year,
 experiment-author,
-experiment-year {
+experiment-year,
+fermion-boson-notes {
     display: inline;
     color: rgba(0, 0, 0, 0.64);
 }
@@ -35,4 +38,8 @@ ol {
 ol li {
     margin: 0.32em 0;
     margin-bottom: 0.96em;
+}
+
+ol:has(fermion-boson-notes) li {
+    margin-bottom: 0;
 }
