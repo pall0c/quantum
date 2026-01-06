@@ -27,9 +27,18 @@ const platforms = defineCollection({
     }),
 });
 
+const literature = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+    }),
+});
+
 export const collections = {
     glossary,
     resources,
     platforms,
+    literature,
 };
 

@@ -4,19 +4,20 @@ import { getCollection, getEntry } from 'astro:content';
 const glossary = await getCollection('glossary');
 const resources = await getCollection('resources');
 const platforms = await getCollection('platforms');
+const literature = await getCollection('literature');
 const fermionsBosons = await getEntry('glossary', 'fermions-bosons');
 const { Content } = await fermionsBosons.render();
 ---
 
 <BaseLayout>
     <main class="px-4 py-8">
-         <h1 class="text-gray-400 text-xl mb-2">Glossary</h1>
+        <h1 class="text-gray-400 text-xl mb-2">Literature</h1>
         
         <ul class="list-none leading-7">
-            {glossary.map((entry) => (
+            {literature.map((entry) => (
                 <li>
                     <a
-                        href={`/glossary/${entry.slug}`}
+                        href={`/literature/${entry.slug}`}
                         class="no-underline transition-colors text-gray-700 text-md hover:text-[#6e66d4] cursor-pointer"
                     >
                         {entry.data.title}
@@ -32,6 +33,21 @@ const { Content } = await fermionsBosons.render();
                 <li>
                     <a
                         href={`/platforms/${entry.slug}`}
+                        class="no-underline transition-colors text-gray-700 text-md hover:text-[#6e66d4] cursor-pointer"
+                    >
+                        {entry.data.title}
+                    </a>
+                </li>
+            ))}
+        </ul>
+
+        <h1 class="text-gray-400 text-xl mb-2 mt-8">Glossary</h1>
+        
+        <ul class="list-none leading-7">
+            {glossary.map((entry) => (
+                <li>
+                    <a
+                        href={`/glossary/${entry.slug}`}
                         class="no-underline transition-colors text-gray-700 text-md hover:text-[#6e66d4] cursor-pointer"
                     >
                         {entry.data.title}
