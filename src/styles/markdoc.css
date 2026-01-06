@@ -1,13 +1,17 @@
 theory-title,
 experiment-title,
-fermion-boson-title {
+fermion-boson-title,
+trapping-title,
+gate-title {
     display: inline;
     color: #6e66d4;
 }
 
 theory-title::after,
 experiment-title::after,
-fermion-boson-title::after {
+fermion-boson-title::after,
+trapping-title::after,
+gate-title::after {
     content: "\A";
     white-space: pre;
 }
@@ -16,7 +20,9 @@ theory-author,
 theory-year,
 experiment-author,
 experiment-year,
-fermion-boson-notes {
+fermion-boson-notes,
+trapping-notes,
+gate-notes {
     display: inline;
     color: rgba(0, 0, 0, 0.64);
 }
@@ -40,6 +46,8 @@ ol li {
     margin-bottom: 0.96em;
 }
 
-ol:has(fermion-boson-notes) li {
+ol:has(fermion-boson-notes) li,
+ol:has(trapping-notes) li,
+ol:has(gate-notes) li {
     margin-bottom: 0;
 }

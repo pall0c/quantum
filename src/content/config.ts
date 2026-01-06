@@ -16,8 +16,20 @@ const resources = defineCollection({
     }),
 });
 
+const platforms = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        notes: z.string().optional(),
+        platform: z.string().optional(),
+        trappingTechnique: z.string().optional(),
+        gateMechanism: z.string().optional(),
+    }),
+});
+
 export const collections = {
     glossary,
     resources,
+    platforms,
 };
 

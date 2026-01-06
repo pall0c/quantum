@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+	const platforms = await getCollection('platforms');
+	return platforms.map((entry) => {
+		return {
+			params: { slug: entry.slug },
+			props: { entry },
+		};
+	});
+}
+
+interface Props {
+	entry: CollectionEntry<'platforms'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout>
+    <main class="px-4 py-8">
+        <h1 class="text-gray-400 text-xl mb-2">{entry.data.title}</h1>
+        {entry.data.notes && (
+            <p class="text-gray-400 text-md mb-2">{entry.data.notes}</p>
+        )}
+        <div class="text-gray-700 text-md max-w-[40ch] break-words">
+            <Content />
+        </div>
+    </main>
+</BaseLayout>
+
