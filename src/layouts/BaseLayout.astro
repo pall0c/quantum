@@ -2,9 +2,10 @@
 export interface Props {
 	title?: string;
 	description?: string;
+	author?: string;
 }
 
-const { title = "Quantum | Vanilla Logs" , description = "Quantum literature of Mathematics, Physics, Chemistry and Philosophy" } = Astro.props;
+const { title = "Quantum | Vanilla Logs" , description = "Quantum literature", author = "Gautam Arjuna" } = Astro.props;
 
 import "@/styles/global.css";
 import Navigation from '@/components/Navigation.astro';
@@ -15,8 +16,10 @@ import Navigation from '@/components/Navigation.astro';
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="icon" content="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content={description} />
+		<meta name="author" content={author} />
 		<title>{title}</title>
 	</head>
 	<body>
