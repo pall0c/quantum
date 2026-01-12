@@ -35,10 +35,19 @@ const literature = defineCollection({
     }),
 });
 
+const algorithms = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+    }),
+});
+
 export const collections = {
     glossary,
     resources,
     platforms,
     literature,
+    algorithms,
 };
 

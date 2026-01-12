@@ -5,6 +5,7 @@ const glossary = await getCollection('glossary');
 const resources = await getCollection('resources');
 const platforms = await getCollection('platforms');
 const literature = await getCollection('literature');
+const algorithms = await getCollection('algorithms');
 const fermionsBosons = await getEntry('glossary', 'fermions-bosons');
 const { Content } = await fermionsBosons.render();
 ---
@@ -33,6 +34,21 @@ const { Content } = await fermionsBosons.render();
                 <li>
                     <a
                         href={`/platforms/${entry.slug}`}
+                        class="no-underline transition-colors text-gray-700 text-md hover:text-[#6e66d4] cursor-pointer"
+                    >
+                        {entry.data.title}
+                    </a>
+                </li>
+            ))}
+        </ul>
+
+        <h1 class="text-gray-400 text-xl mb-2 mt-8">Algorithms</h1>
+        
+        <ul class="list-none leading-7">
+            {algorithms.map((entry) => (
+                <li>
+                    <a
+                        href={`/algorithms/${entry.slug}`}
                         class="no-underline transition-colors text-gray-700 text-md hover:text-[#6e66d4] cursor-pointer"
                     >
                         {entry.data.title}
